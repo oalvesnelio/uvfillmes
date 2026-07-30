@@ -1,0 +1,473 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description"
+    content="UVfillms — aplicação de película térmica, elétrica e acessórios automotivos em Cuiabá - MT.">
+  <meta name="theme-color" content="#090d2b">
+  <title>UVfillms | Película Térmica e Elétrica Automotiva</title>
+
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --uv-dark: #090d2b;
+      --uv-blue: #2947a9;
+      --uv-cyan: #45b9e5;
+      --uv-purple: #bd4aa7;
+      --uv-light: #f7f9ff;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    }
+
+    section {
+      scroll-margin-top: 84px;
+    }
+
+    .bg-uv-dark {
+      background-color: var(--uv-dark) !important;
+    }
+
+    .text-uv-cyan {
+      color: var(--uv-cyan) !important;
+    }
+
+    .text-uv-purple {
+      color: var(--uv-purple) !important;
+    }
+
+    .border-uv {
+      border-color: rgba(69, 185, 229, .28) !important;
+    }
+
+    .btn-uv {
+      --bs-btn-color: #fff;
+      --bs-btn-bg: var(--uv-blue);
+      --bs-btn-border-color: var(--uv-blue);
+      --bs-btn-hover-color: #fff;
+      --bs-btn-hover-bg: #213a8f;
+      --bs-btn-hover-border-color: #213a8f;
+      --bs-btn-active-bg: #1c327b;
+      --bs-btn-active-border-color: #1c327b;
+    }
+
+    .brand-mark {
+      display: inline-flex;
+      align-items: center;
+      gap: .55rem;
+    }
+
+    .brand-word {
+      color: #fff;
+      font-weight: 800;
+      letter-spacing: -.06em;
+      font-style: italic;
+    }
+
+    .brand-bars {
+      display: inline-flex;
+      gap: .16rem;
+      transform: skew(-10deg);
+    }
+
+    .brand-bars span {
+      display: block;
+      width: .32rem;
+      height: 1.25rem;
+      border-radius: .05rem;
+    }
+
+    .brand-bars span:nth-child(1) {
+      background: var(--uv-blue);
+    }
+
+    .brand-bars span:nth-child(2) {
+      background: var(--uv-cyan);
+    }
+
+    .brand-bars span:nth-child(3) {
+      background: var(--uv-purple);
+    }
+
+    .hero {
+      min-height: 88vh;
+      background:
+        linear-gradient(90deg, rgba(9, 13, 43, .97) 0%, rgba(9, 13, 43, .92) 45%, rgba(9, 13, 43, .38) 100%),
+        url('assets/fachada.jpeg') center 42% / cover no-repeat;
+    }
+
+    .hero-badge {
+      background: rgba(255, 255, 255, .08);
+      border: 1px solid rgba(255, 255, 255, .16);
+      backdrop-filter: blur(10px);
+    }
+
+    .gradient-text {
+      background: linear-gradient(90deg, var(--uv-cyan), #8ba6ff, var(--uv-purple));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .section-kicker {
+      letter-spacing: .18em;
+      font-size: .78rem;
+    }
+
+    .service-card,
+    .feature-card {
+      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+    }
+
+    .service-card:hover,
+    .feature-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 1rem 2.5rem rgba(9, 13, 43, .12) !important;
+      border-color: rgba(69, 185, 229, .55) !important;
+    }
+
+    .icon-box {
+      width: 3.25rem;
+      height: 3.25rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, rgba(41, 71, 169, .12), rgba(189, 74, 167, .12));
+      color: var(--uv-blue);
+    }
+
+    .photo-card img {
+      height: 460px;
+      object-fit: cover;
+    }
+
+    .cta-panel {
+      background:
+        radial-gradient(circle at 10% 20%, rgba(69, 185, 229, .28), transparent 36%),
+        radial-gradient(circle at 90% 80%, rgba(189, 74, 167, .26), transparent 38%),
+        var(--uv-dark);
+    }
+
+    .map-frame {
+      min-height: 390px;
+    }
+
+    .whatsapp-float {
+      z-index: 1080;
+    }
+
+    @media (max-width: 991.98px) {
+      .hero {
+        min-height: auto;
+        background:
+          linear-gradient(rgba(9, 13, 43, .88), rgba(9, 13, 43, .94)),
+          url('assets/fachada.jpeg') center / cover no-repeat;
+      }
+
+      .photo-card img {
+        height: 330px;
+      }
+    }
+  </style>
+</head>
+
+<body class="bg-body-tertiary">
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-uv-dark sticky-top shadow-sm" aria-label="Navegação principal">
+    <div class="container py-2">
+      <a class="navbar-brand brand-mark" href="#inicio" aria-label="UVfillms - início">
+        <!-- <span class="brand-word fs-4">UVF</span>
+        <span class="brand-bars" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-word fs-4">LMS</span> -->
+        <!-- srcset="./assets/logo.svg 1x, ./assets/logo-hd.svg 2x" -->
+        <img src="./assets/logo_adobe_svg.svg" alt="Logotipo da empresa UVVfillms" height="50" />
+      </a>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#menu"
+        aria-controls="menu" aria-expanded="false" aria-label="Abrir menu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="menu">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+          <li class="nav-item"><a class="nav-link" href="#servicos">Serviços</a></li>
+          <li class="nav-item"><a class="nav-link" href="#sobre">Sobre</a></li>
+          <li class="nav-item"><a class="nav-link" href="#localizacao">Localização</a></li>
+          <li class="nav-item ms-lg-2 mt-3 mt-lg-0">
+            <a class="btn btn-info fw-semibold px-4"
+              href="https://wa.me/5565992684345?text=Olá%2C%20vim%20pelo%20site%20da%20UVfillms%20e%20gostaria%20de%20um%20orçamento."
+              target="_blank" rel="noopener">
+              <i class="bi bi-whatsapp me-2"></i>Orçamento
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <section id="inicio" class="hero d-flex align-items-center text-white">
+      <div class="container py-5">
+        <div class="row py-lg-5">
+          <div class="col-lg-7 col-xl-6">
+            <span class="hero-badge d-inline-flex align-items-center rounded-pill px-3 py-2 mb-4 small fw-semibold">
+              <i class="bi bi-geo-alt-fill text-info me-2"></i>Cuiabá — MT
+            </span>
+            <h1 class="display-3 fw-bold lh-1 mb-4">Seu carro com mais <span class="gradient-text">conforto, proteção e
+                estilo.</span></h1>
+            <p class="lead text-white-50 mb-4">Aplicação profissional de película térmica, serviços de elétrica e
+              acessórios automotivos para deixar seu veículo mais seguro e completo.</p>
+            <div class="d-flex flex-column flex-sm-row gap-3">
+              <a class="btn btn-info btn-lg fw-bold px-4"
+                href="https://wa.me/5565992684345?text=Olá%2C%20quero%20solicitar%20um%20orçamento%20na%20UVfillms."
+                target="_blank" rel="noopener">
+                <i class="bi bi-whatsapp me-2"></i>Pedir orçamento
+              </a>
+              <a class="btn btn-outline-light btn-lg px-4" href="#servicos">Conhecer serviços</a>
+            </div>
+            <div class="row g-3 mt-4">
+              <div class="col-12 col-sm-4">
+                <div class="d-flex align-items-center"><i class="bi bi-shield-check fs-4 text-info me-2"></i><span
+                    class="small">Instalação cuidadosa</span></div>
+              </div>
+              <div class="col-12 col-sm-4">
+                <div class="d-flex align-items-center"><i class="bi bi-stars fs-4 text-info me-2"></i><span
+                    class="small">Acabamento profissional</span></div>
+              </div>
+              <div class="col-12 col-sm-4">
+                <div class="d-flex align-items-center"><i class="bi bi-clock-history fs-4 text-info me-2"></i><span
+                    class="small">Mais de 11 anos</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="servicos" class="py-5 bg-white">
+      <div class="container py-lg-5">
+        <div class="row align-items-end mb-5">
+          <div class="col-lg-7">
+            <p class="section-kicker text-uppercase text-primary fw-bold mb-2">Nossos serviços</p>
+            <h2 class="display-6 fw-bold mb-3">Tudo o que seu veículo precisa em um só lugar</h2>
+            <p class="text-secondary mb-0">Soluções automotivas com atendimento direto, atenção aos detalhes e foco no
+              melhor resultado para o seu carro.</p>
+          </div>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-md-6 col-xl-4">
+            <article class="card service-card h-100 border-uv shadow-sm rounded-4 p-2">
+              <div class="card-body p-4">
+                <span class="icon-box rounded-3 mb-4"><i class="bi bi-sun fs-3"></i></span>
+                <h3 class="h4 fw-bold">Película térmica</h3>
+                <p class="text-secondary mb-0">Mais conforto térmico, proteção contra os raios solares, privacidade e
+                  visual renovado para o veículo.</p>
+              </div>
+            </article>
+          </div>
+          <div class="col-md-6 col-xl-4">
+            <article class="card service-card h-100 border-uv shadow-sm rounded-4 p-2">
+              <div class="card-body p-4">
+                <span class="icon-box rounded-3 mb-4"><i class="bi bi-lightning-charge fs-3"></i></span>
+                <h3 class="h4 fw-bold">Elétrica automotiva</h3>
+                <p class="text-secondary mb-0">Diagnóstico e serviços elétricos para iluminação, componentes e sistemas
+                  essenciais do automóvel.</p>
+              </div>
+            </article>
+          </div>
+          <div class="col-md-6 col-xl-4">
+            <article class="card service-card h-100 border-uv shadow-sm rounded-4 p-2">
+              <div class="card-body p-4">
+                <span class="icon-box rounded-3 mb-4"><i class="bi bi-lightbulb fs-3"></i></span>
+                <h3 class="h4 fw-bold">Iluminação LED</h3>
+                <p class="text-secondary mb-0">Instalação de lâmpadas e soluções em LED para melhorar a iluminação e
+                  modernizar o seu carro.</p>
+              </div>
+            </article>
+          </div>
+          <div class="col-md-6 col-xl-4">
+            <article class="card service-card h-100 border-uv shadow-sm rounded-4 p-2">
+              <div class="card-body p-4">
+                <span class="icon-box rounded-3 mb-4"><i class="bi bi-car-front fs-3"></i></span>
+                <h3 class="h4 fw-bold">Acessórios automotivos</h3>
+                <p class="text-secondary mb-0">Acessórios para personalizar, proteger e tornar a rotina com o veículo
+                  mais prática.</p>
+              </div>
+            </article>
+          </div>
+          <div class="col-md-6 col-xl-4">
+            <article class="card service-card h-100 border-uv shadow-sm rounded-4 p-2">
+              <div class="card-body p-4">
+                <span class="icon-box rounded-3 mb-4"><i class="bi bi-tools fs-3"></i></span>
+                <h3 class="h4 fw-bold">Instalação profissional</h3>
+                <p class="text-secondary mb-0">Serviço realizado com técnica, cuidado e atenção aos acabamentos internos
+                  e externos.</p>
+              </div>
+            </article>
+          </div>
+          <div class="col-md-6 col-xl-4">
+            <article class="card service-card h-100 border-uv shadow-sm rounded-4 p-2">
+              <div class="card-body p-4">
+                <span class="icon-box rounded-3 mb-4"><i class="bi bi-chat-dots fs-3"></i></span>
+                <h3 class="h4 fw-bold">Orçamento rápido</h3>
+                <p class="text-secondary mb-0">Envie uma mensagem pelo WhatsApp, informe o modelo do veículo e receba um
+                  atendimento direto.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="sobre" class="py-5">
+      <div class="container py-lg-5">
+        <div class="row g-5 align-items-center">
+          <div class="col-lg-6">
+            <div class="position-relative photo-card">
+              <img src="assets/fachada.jpeg" class="img-fluid w-100 rounded-4 shadow-lg"
+                alt="Fachada da UVfillms em Cuiabá" loading="lazy">
+              <div class="position-absolute bottom-0 start-0 m-3 m-md-4 bg-white rounded-4 shadow p-3 p-md-4">
+                <div class="d-flex align-items-center gap-3">
+                  <span class="icon-box rounded-circle flex-shrink-0"><i class="bi bi-award fs-3"></i></span>
+                  <div><strong class="d-block fs-5">Experiência que faz diferença</strong><span
+                      class="text-secondary small">Mais de 11 anos no setor automotivo</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <p class="section-kicker text-uppercase text-primary fw-bold mb-2">Sobre a UVfillms</p>
+            <h2 class="display-6 fw-bold mb-4">Cuidado com cada detalhe do seu carro</h2>
+            <p class="text-secondary fs-5">A UVfillms atua em Cuiabá com aplicação de película térmica, elétrica e
+              acessórios automotivos, buscando entregar praticidade, bom acabamento e atendimento próximo ao cliente.
+            </p>
+            <div class="row g-3 mt-3">
+              <div class="col-sm-6">
+                <div class="feature-card bg-white border rounded-4 p-4 h-100"><i
+                    class="bi bi-check-circle-fill text-primary me-2"></i><strong>Atendimento direto</strong>
+                  <p class="small text-secondary mb-0 mt-2">Converse com a equipe e tire suas dúvidas antes do serviço.
+                  </p>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="feature-card bg-white border rounded-4 p-4 h-100"><i
+                    class="bi bi-check-circle-fill text-primary me-2"></i><strong>Serviço especializado</strong>
+                  <p class="small text-secondary mb-0 mt-2">Execução com atenção à instalação e ao acabamento.</p>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="feature-card bg-white border rounded-4 p-4 h-100"><i
+                    class="bi bi-check-circle-fill text-primary me-2"></i><strong>Localização acessível</strong>
+                  <p class="small text-secondary mb-0 mt-2">Atendimento na região do CPA II, em Cuiabá.</p>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="feature-card bg-white border rounded-4 p-4 h-100"><i
+                    class="bi bi-check-circle-fill text-primary me-2"></i><strong>Soluções completas</strong>
+                  <p class="small text-secondary mb-0 mt-2">Película, elétrica, LED e acessórios em um só lugar.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-5 bg-white">
+      <div class="container py-lg-4">
+        <div class="cta-panel rounded-5 text-white p-4 p-md-5 shadow-lg overflow-hidden">
+          <div class="row align-items-center g-4">
+            <div class="col-lg-8">
+              <span class="badge text-bg-info mb-3">ATENDIMENTO PELO WHATSAPP</span>
+              <h2 class="display-6 fw-bold">Quer melhorar o conforto e o visual do seu carro?</h2>
+              <p class="lead text-white-50 mb-0">Fale agora com a UVfillms e solicite seu orçamento sem compromisso.</p>
+            </div>
+            <div class="col-lg-4 text-lg-end">
+              <a class="btn btn-info btn-lg fw-bold px-4"
+                href="https://wa.me/5565992684345?text=Olá%2C%20vim%20pelo%20site%20e%20quero%20um%20orçamento."
+                target="_blank" rel="noopener"><i class="bi bi-whatsapp me-2"></i>Chamar no WhatsApp</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="localizacao" class="py-5">
+      <div class="container py-lg-5">
+        <div class="row g-4 align-items-stretch">
+          <div class="col-lg-5">
+            <div class="bg-uv-dark text-white rounded-4 p-4 p-md-5 h-100 shadow">
+              <p class="section-kicker text-uppercase text-info fw-bold mb-2">Onde estamos</p>
+              <h2 class="display-6 fw-bold mb-4">Visite a UVfillms</h2>
+              <div class="d-flex gap-3 mb-4"><i class="bi bi-geo-alt-fill text-info fs-4"></i>
+                <div><strong class="d-block">Endereço</strong><span class="text-white-50">Av. Professora Alice Freire
+                    Silva, CPA II<br>Cuiabá - MT, 78055-534</span></div>
+              </div>
+              <div class="d-flex gap-3 mb-4"><i class="bi bi-telephone-fill text-info fs-4"></i>
+                <div><strong class="d-block">Telefone / WhatsApp</strong><a
+                    class="link-light text-decoration-none text-white-50" href="tel:+5565992684345">(65) 99268-4345</a>
+                </div>
+              </div>
+              <div class="d-flex gap-3 mb-5"><i class="bi bi-instagram text-info fs-4"></i>
+                <div><strong class="d-block">Instagram</strong><a class="link-light text-decoration-none text-white-50"
+                    href="https://www.instagram.com/uvfillms/" target="_blank" rel="noopener">@uvfillms</a></div>
+              </div>
+              <a class="btn btn-outline-info w-100 fw-semibold" href="https://maps.app.goo.gl/gQQMvjW72uJyNWbm9?g_st=ac"
+                target="_blank" rel="noopener"><i class="bi bi-sign-turn-right me-2"></i>Abrir rota no Google Maps</a>
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <iframe class="map-frame w-100 h-100 border-0 rounded-4 shadow" title="Mapa da UVfillms" loading="lazy"
+              allowfullscreen referrerpolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps?q=Av.%20Professora%20Alice%20Freire%20Silva%2C%20CPA%20II%2C%20Cuiab%C3%A1%20MT&output=embed"></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-uv-dark text-white py-5">
+    <div class="container">
+      <div class="row g-4 align-items-center">
+        <div class="col-md-6">
+          <a class="text-decoration-none brand-mark" href="#inicio">
+            <span class="brand-word fs-4">UVF</span><span
+              class="brand-bars"><span></span><span></span><span></span></span><span class="brand-word fs-4">LMS</span>
+          </a>
+          <p class="text-white-50 small mt-3 mb-0">Película térmica, elétrica e acessórios automotivos em Cuiabá - MT.
+          </p>
+        </div>
+        <div class="col-md-6 text-md-end">
+          <a class="btn btn-outline-light rounded-circle me-2" href="https://www.instagram.com/uvfillms/"
+            target="_blank" rel="noopener" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+          <a class="btn btn-outline-light rounded-circle" href="https://wa.me/5565992684345" target="_blank"
+            rel="noopener" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+        </div>
+      </div>
+      <hr class="border-secondary my-4">
+      <p class="small text-white-50 mb-0 text-center">© <span id="ano"></span> UVfillms. Todos os direitos reservados.
+      </p>
+    </div>
+  </footer>
+
+  <a class="whatsapp-float btn btn-success rounded-circle shadow-lg position-fixed bottom-0 end-0 m-3 m-md-4 d-flex align-items-center justify-content-center"
+    style="width: 3.5rem; height: 3.5rem;"
+    href="https://wa.me/5565992684345?text=Olá%2C%20vim%20pelo%20site%20da%20UVfillms." target="_blank" rel="noopener"
+    aria-label="Falar no WhatsApp">
+    <i class="bi bi-whatsapp fs-3"></i>
+  </a>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>document.getElementById('ano').textContent = new Date().getFullYear();</script>
+</body>
+
+</html>
